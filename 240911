@@ -1,0 +1,88 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""
+
+
+# 우선순위 연산자
+result = 10 + 2 ** (4/2)
+print(result)
+
+# 복리 계산
+P = 10000   # 원금
+r = 0.05    # 이자율 5%
+n = 4       # 분기별 연간 복리 횟수
+t = 5       # 투자 기간
+
+A = P * (1+ r/n) ** (n * t)
+
+print(A)
+
+# 반올림&타입변환
+price = 12345           # 정수 타입
+tax_rate = 0.075        # 부동소수점 타입
+
+tax = price * tax_rate
+tax = round(tax, 2)     # 소수점 두 자리까지 반올림
+
+tax_int = int(tax)      # 정수로 타입 변환
+
+print("세금 (부동소수점):", tax)
+print("세금 (정수):", tax_int)
+
+# 문자열
+str1 = '안녕'
+str2 = '철수'
+str3 = str1 + str2
+str4 = str3*5
+print('-'*10)
+print(str4)
+
+# 숫자 + 문자열?
+out = 1000 + 2000
+out_ = '1000' + '2000'
+# out_1 = 1000 + '2000'
+out_2 = str(1000) + '2000'  # 문자열 타입 변환
+out_3 = 1000 + int('2000')  # 정수 타입 변환
+
+# 문자 인덱싱
+text = 'library'
+# print(type(text))         # 타입 확인
+
+# Input 함수 (타입은 무조건 str)
+num_input = input("Enter a number: ")
+num = int(num_input)
+# num = int(input("number: "))
+str_input = input("Enter a string: ")
+print("number:", num)
+print("string:", str_input)
+
+# Turtle 그리기
+import turtle
+
+# t= turtle.Turtle()
+# t.shape("turtle")   # 커서 모양(turtle shape python)
+
+# t.forward(100)      # 앞
+# t.left(90)          # 각도(왼쪽으로 꺾음)
+# t.forward(50)
+
+# turtle.mainloop()
+# turtle.bye()
+
+# Turtle 삼각형 그리기
+side_length = int(input("삼각형의 한 변의 길이 입력: "))
+
+t = turtle.Turtle()
+
+t.forward(side_length)
+t.left(120)
+t.forward(side_length)
+t.left(120)
+t.forward(side_length)
+t.left(120)
+
+turtle.mainloop()
+turtle.bye()
