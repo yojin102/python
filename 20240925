@@ -1,0 +1,109 @@
+# -*- coding: utf-8 -*-
+
+#축약연산
+#양수, 음수
+x=10
+result = "Positive" if x > 0 else "Negative"
+
+#큰 값 변환
+a = 1; b = 2
+max_value = a if a > b else b
+
+#짝,홀
+num = 2
+parity = "Even" if num % 2 == 0 else "Odd"
+
+#리스트 비었는지 여부
+my_list = []
+message = "List is empty" if not my_list else "List has elements"
+
+#학점 계산 elif
+score = 85
+
+if score >= 90:
+    grade = 'A'
+elif score >= 80:
+    grade = 'B'
+elif score >= 70:
+    grade = 'C'
+elif score >= 60:
+    grade = 'D'
+else:
+    grade = 'F'
+
+print("학점 :", grade)
+
+#반복문
+
+for i in range(5):
+    print("안녕")
+    
+for i in range(2,6):
+    print(i)
+for i in range(1,10,2):
+    print(i)
+for i in range(10,0,-2):
+    print(i)
+    
+start =int(input("시작 숫자 입력: "))
+end = int(input("끝 숫자 입력: "))
+
+total = 0
+for i in range(start, end + 1):
+    total += i
+    
+print(f"{start}부터 {end}까지의 총합 : {total}")
+
+#list
+
+slist = ['영','수','사','과']
+#slist = ["영어", 10.0. [1,2,3,4], random.randint(1,10)]
+
+for y in slist:
+    print(y)
+    
+#이중for문
+vision = ['happy', 'smart', 'enjoy']
+city = ['seoul', 'busan', 'ulsan']
+for x in vision:
+    for y in city:
+        print(x,y)
+        
+"""
+for y in slist:
+    print(y)
+    if type(y)==list:
+        for x in y:
+            print(y)
+        print("---")
+"""
+
+for i in range(1,6):
+    for j in range(i):
+        print("*", end="")
+    print()
+    
+for i in range(6,0,-1):
+    for j in range(i):
+        print("*", end="")
+    print()
+
+#구구단
+for dan in range(2,10):
+    for i in range(1,10):
+        print(f"{dan} x {i} = {dan * i}")
+    print()
+    
+#for~else문
+for x in range(6):
+    if x == 3: break
+    print(x)
+else:
+    print('수고')     #break에 의해 실행x
+    
+for i in range(20):
+    if i%2==0:
+        continue
+    if i==15:
+        break
+    print(i)
