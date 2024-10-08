@@ -1,0 +1,62 @@
+# -*- coding: utf-8 -*-
+#list-슬라이싱 시험문제 나옴
+'''
+list1 = ["사과", "바나나", "포도"]
+list2 = ["apple", "banana", "grape"]
+
+for word1, word2 in zip(list1, list2):
+    print(f"{word1}의 영어 단어는 {word2}입니다.")
+'''
+
+'''
+#append(리스트에 요소 추가)
+fruits = []
+
+fruits.append("사과")
+fruits.append("바나나")
+fruits.append("포도")
+
+print(fruits)
+'''
+'''
+#append와 extend 비교
+list1.append(list2)
+print("append 결과:", list1)
+
+list1 = ["사과", "바나나", "포도"]
+list1.extend(list2)
+print("extend 결과:", list1)
+'''
+
+#insert 
+list1 = ["사과", "바나나", "포도"]
+
+#첫 번째 위치 삽입
+list1.insert(0,"딸기")
+
+#마지막 위치 삽입(길이 읽어주는 함수 len)
+list1.insert(len(list1), "키위")
+
+print(list1)
+
+#list 탐색
+for list12 in list1:
+    if list12 == "포도":
+        print(f"'{list12}'가 리스트에 있습니다.")
+        
+if "딸기" in list1:
+    print("있습니다.")
+    
+list3 = list1.index("딸기")
+print(f"'딸기'는 인덱스 {list3}에 있음")
+
+#요소 삭제
+list1.remove("키위")
+
+print(list1)
+
+#인덱스 3의 요소 가져오며 삭제
+removed_item = list1.pop(3)
+
+print(f"삭제된 요소: {removed_item}")
+print(f"현재 리스트: {list1}")
