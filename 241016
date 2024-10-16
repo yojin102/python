@@ -1,0 +1,51 @@
+# -*- coding: utf-8 -*-
+# numbers = (10,20,30)
+
+# print(numbers[0])
+# print(numbers[-1])
+
+# name, age, profession = numbers
+
+# print(name)
+# print(age)
+# print(profession)
+
+# str1 = input("첫 번째 문자: ")
+# str2 = input("두 번째 문자: ")
+
+# list1 = list(set(str1)&set(str2))
+
+# print("\n공통 글자:", end=" ")
+# for i in list1:
+#     print(i, end=" ")
+    
+capitals = {"Korea":"Seoul","USA":"Washington","UK":"London"}
+for key, value in capitals.items():
+    print(key,":",value)
+    
+score = {
+    "K":[43,22,56],
+    "L":[46,16,57],
+    "C":[94,82,54]
+    }
+
+#score= {"Kim":{"math":99, "kor":12}}
+#score["kim"]["kor"]
+
+for name, scores in score.items():
+    print(name,"의 평균성적=", round(sum(scores)/len(scores),2))
+    
+dic = {"Kim":{"math":99, "kor":12},
+        "Lee":{"math":34, "kor":34},
+        "Choi":{"math":45, "kor":65}
+        }
+
+for xx in dic:
+    print(dic[xx])
+    for yy in dic[xx]:
+        print(dic[xx][yy])
+
+def add(a,b):
+    result = a+b
+    return result
+
