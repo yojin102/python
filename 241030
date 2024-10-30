@@ -1,0 +1,77 @@
+# -*- coding: utf-8 -*-
+
+# 객체와 클래스
+
+# 객체의 멤버 접근
+class Counter:
+    def __init__(self):
+        self.count = 0
+    def increment(self):
+        self.count +=1
+
+a = Counter()
+a.increment()
+print("카운터의 값=",a.count)
+
+# 
+class Television:
+    def __init__(self, channel, volume, on):
+        self.channel = channel
+        self.volume = volume
+        self.on = on
+        
+    def show(self):
+        print(self.channel, self.volume, self.on)
+        
+    def setChannel(self, channel):
+        self.channel = channel
+        
+    def getChannel(self):
+        return self.channel
+    
+t = Television(9,10,True)
+t.show()
+
+t.setChannel(11)
+t.show()
+
+#
+class Account:
+    def __init__(self, name):
+        self.name = name
+        self.balance = 0
+        
+    def getBalance(self):
+        return self.balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        return self.balance
+    
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+        else:
+            print("잔액 부족")
+            return self.balance
+        
+# 접근자와 설정자
+class student:
+    def __init__(self, name=None, age=0):
+        self.__name = name
+        self.__age = age
+        
+    def getAge(self):
+        return self.__age
+    
+    def getName(self):
+        return self.__name
+    
+    def setAge(self, age):
+        self.__age = age
+    
+    def setName(self, name):
+        self.__name = name
+
+obj = student("Hong",20)
+print(obj.getName())
