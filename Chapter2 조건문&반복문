@@ -1,0 +1,202 @@
+# -*- coding: utf-8 -*-
+
+#chapter2 조건문&반복문
+
+#조건문
+#제어구조
+#순차구조:순차적으로 코드 실행(가장 단순한 구조)
+#선택구조:조건을 체크하고 만족한 방향으로 코드 실행
+
+#if문 - 참일 때 단계 실행, 거짓일 때 아무것도 안하는 구조
+#들여쓰기 중요
+number = 10
+if number > 2:
+    print("true")
+else:
+    print("false")
+    
+#중첩if문
+"""
+if :
+    if:
+
+    else:
+        
+else:
+"""
+
+#부울 변수
+adult = 10>3    #true/false로 저장
+
+#문자열 비교
+password = input("비밀번호 입력")
+
+correct_password = "correct12312"
+
+if password == correct_password:
+    print("일치")
+else:
+    print("불일치")
+    
+#조건문 이용한 산수 문제
+import random
+
+num1 = random.randint(1,100)
+num2 = random.randint(3,85)
+
+print(f"{num1} + {num2} = ?")
+
+user_input = int(input("정답 입력: "))
+
+answer = num1+num2
+
+if user_input == answer:
+    print("정답")
+else:
+    print("오답")
+
+#조건문 축약
+x = 3
+result = "Positive" if x > 0 else "Negative"
+print(result)
+
+#리스트가 비었는지 여부 확인
+my_list = []
+print("empty" if not my_list else "element")
+
+#elif문
+if x < 0:
+    print("Negative")
+elif x == 0:
+    print("zero")
+else:
+    print("Positive")
+    
+#AND 연산
+if x >= 3 and number < 11:
+    print("?")
+    
+#OR연산
+if x >= 3 or number < 11:
+    print("!")
+
+'''    
+#관계연산
+A==B
+A!=B
+A>B
+A<B
+A>=B
+A<=B
+
+#논리 연산자
+A and B
+A or B
+not A
+'''
+
+#반복문
+#수백 줄의 코드를 짤 때 효율적
+print("안녕하세요")
+print("안녕하세요")
+print("안녕하세요")
+
+for i in range(3):
+    print("hello")
+    
+#for문(횟수반복)
+#반복 횟수를 미리 아는 경우 사용
+#for 변수 in 시퀀스: 문장 실행
+    
+#range 함수
+#range(start, stop, step)
+#stop-1 출력됨/step 생략하면 1씩 올라감
+#range(변수,변수) 입력 가능
+    
+#10! 구하기
+factorial = 1
+
+for i in range(1,11):
+    factorial*=i
+    print(factorial)
+    
+#리스트 개념
+#항목들을 저장하는 구조(배열과 비슷)
+list1 = ["영","수","과"]
+
+#리스트 인덱스
+list1[1]
+
+#리스트와 반복문
+for i in list1:
+    print(i)
+    
+#이중for문
+    #for````
+        #for ~~~~
+#외부반복1 - 내부반복n, 외부반복2 - 내부반복n
+        
+#삼각형 모양의 별 출력
+for i in range(1,8):
+    for j in range(i): #0부터 i-1까지 반복
+        print("*", end="")  #줄 바꿈 없이 별 출력
+    print() #한 줄 출력 후 줄 바꿈
+
+#구구단
+for dan in range(2, 10):
+    for i in range(1,10):
+        print(f"{dan} x {i} = {dan * i}")
+    print()
+    
+'''
+#Turtle Graphic로 그림 그리기
+
+import turtle
+import random
+
+turtle.shpae("turtle")
+colors = ['red','green','magenta']
+turtle.penup()      #좌표이동시 선이 그어지지 않게 펜을 들어올린다는 의미
+turtle.screensize(200,200) #배경의 넓이와 폭 지정
+turtle.setup(230,230)   #그래픽 창 크기 지정
+
+for i in range(7):
+    for k in range(7):
+        x=i*50-150
+        y=k*50-150
+        turtle.goto(x,y)    #좌표이동
+        turtle.color(random.choice(colors))
+        turtle.stamp()  #도장
+        
+turtle.done()
+'''
+
+#while문(조건반복)
+#특정한 조건이 성립되는 동안 반복
+i=0
+while i < 5:
+    print(i)
+    i+=1
+#i+=1부분이 없으면 i를 증가시키는 부분이 없어 무한루프 됨
+    
+#break와 continue
+#break는 해당 블록 탈출
+#continue는 해당 블록 건너뜀
+    
+#숫자 맞추기 게임
+secret_num = random.randint(1,100)
+
+#시도 횟수 초기화
+attempts = 0
+
+while True:
+    user_input = int(input("1~100사이의 숫자를 맞추세요: "))
+    attempts+=1
+    
+    if user_input < secret_num :
+        print("더 큼")
+    elif user_input > secret_num:
+        print("더 작음")
+    else:
+        print(f"정답 {attempts}번 만에 맞춤")
+        break
