@@ -1,0 +1,91 @@
+# -*- coding: utf-8 -*-
+
+#chapter3 자료구조(리스트, 튜블, 딕셔너리)
+
+#자료들을 저장하는 여러 가지 구조들을 자료구조(data structure) 또는 데이터구조라 부름
+
+#시퀀스(sequence):
+#요소(element)로 구성
+#요소 간에 순서가 있음
+#시퀀스 요소들은 번호가 붙여져 있다,
+#내장 시퀀스(str, bytes, bytearraym list, tuple, range)
+#동일한 연산을 지원
+#인덱싱(indexing),슬라이싱(slicing),덧셈 연산(adding), 곱셈 연산(multiplying)
+#내장함수 적용가능: 시퀀스의 길이를 반환하는 len()함수, 최대값과 최소값을 찾는 max(),min()
+
+#리스트(list)
+#종이상자에 데이터를 저장해둔 개념
+#각각의 데이터에 번호(첨자)를 붙여서 접근
+#비어있을 수도 있고 숫자나 문자열, 리스트로 요솟값을 가질 수 있음(어떠한 자료형도 포함가능)
+
+#리스트 방문
+numbers = [10,20,30,40,50]
+for number in numbers:
+    print(number)
+
+for i in range(len(numbers)):
+    print(f"인덱스 {i}값: {numbers[i]}")
+    
+#enumerate()
+#인자로 넘어온 목록을 기준으로 인덱스와 원소를 차례대로 접근하게 해주는 반복자 객체 반환 함수
+for index, number in enumerate(numbers):
+    print(f"인덱스 {index}: {number}")
+    
+#리스트 인덱싱
+print(numbers[-3])  #뒤에서 세 번째 요소
+numbers[2] = 10     #인덱스 요소 변경
+print(numbers[0:2])
+print(numbers[:1])  #처음부터 1까지
+print(numbers[2:])  #2부터 끝까지
+
+#zip함수
+#두 개의 리스트에서 동시에 단어를 가져옴
+#여러 리스트(또는 다른 반복 가능한 객체)를 병렬로 순회할 수 있도록 도와준다.
+list1 = ["사과","포도","바나나"]
+list2 = ["apple","grape","banana"]
+
+for word1, word2 in zip(list1, list2):
+    print(f"{word1}의 영단어는 {word2}")
+    
+#append함수
+#리스트에 요소를 추가하는 함수(리스트 끝에 새로운 요소 삽입)
+fruits =[]
+fruits.append("두리안")
+print(fruits)
+
+#append와 extend
+list1.append(list2)  #리스트 자체 추가
+print(list1)
+list1.extend(list2)  #각 요소 개별 추가
+print(list1)
+
+#insert함수
+#리스트에서 특정 위치에 새로운 요소 삽입
+fruits.insert(0,"블루베리")
+
+#마지막 위치에 요소 삽입
+fruits.insert(len(fruits),"키위")
+
+print(fruits)
+
+#리스트 탐색
+for fruit in fruits:
+    if fruit == "딸기":
+        print("없음")
+
+#in 키워드로 확인
+if "키위" in fruits:
+    print("있음")
+    
+#데이터 값의 인덱스 찾기
+index = fruits.index("키위")
+print(index)
+
+#요소 삭제
+fruits.remove("키위")
+print(fruits)
+
+#인덱스 요소 가져오면서 삭제
+removed_item = fruits.pop(1)
+print(removed_item)
+print(fruits)
