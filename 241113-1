@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+
+from tkinter import *
+ 
+def checked(i):
+    global player
+    button = list[i]
+
+    if   button["text"] != "            ":
+        return
+    button["text"] = "     " + player+"      "
+    button["bg"] = "yellow"
+    if   player=="X":
+        player = "O"
+        button["bg"] = "yellow"
+    else :
+        player = "X"
+        button["bg"] = "lightgreen"
+
+window = Tk() 
+player="X"
+list = []
+
+for i in range(9):
+    b = Button(window, text="            ", command=lambda k=i: checked(k))
+    b.grid(row=i//3, column=i%3)    # 이렇게 하면 가독성이 떨어져서 for문 쓰는 게 나음
+    list.append(b)	# 버튼 객체를 리스트에 저장한다. 
+    # 객체를 리스트에 넣어서 관리한다는게 중요
+
+window.mainloop()
