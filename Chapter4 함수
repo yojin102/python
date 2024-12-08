@@ -1,0 +1,138 @@
+# -*- coding: utf-8 -*-
+
+# Chapter4 함수
+
+# 함수란?
+# 과일(입력) -> 믹서기(함수) -> 주스(출력)
+# 순차적으로 코드가 실행됨
+# 입력값을 가지고 어떤 일을 수행한 후 그 결과물을 내어
+# 놓는 것이 바로 함수가 하는 일
+
+# 반복되는 부분이 있을 경우, 한 뭉치로 묶어
+# "어떤 입력값을 주었을 때 어떤 결과값을 리턴"
+
+# 함수 형태
+# def 함수_이름(매개변수):
+#   수행할 문장
+#   return 리턴값
+
+# 함수 선언
+def add(a,b):
+    result = a+b
+    # return a+b 랑 똑같음
+    return result
+
+a = add(3,4)
+# 출력
+print(a)
+
+# 여러 개의 값 반환
+def get_area(length, width):
+    area = length * width
+    perimeter = 3* (length + width)
+    return area, perimeter
+
+area1, perimeter1 = get_area(3,5)
+area2, perimeter2 = get_area(10,20)
+
+print(area1, perimeter1)
+print(area2, perimeter2)
+
+# 계산기 구현
+# 매개변수 3개 받는 함수 정의
+# def calc(v1,v2,op):
+#   result = 0
+#   if op == '+' :
+#       result = v1 + v2
+#   elif ...
+#   return result
+
+# 전역변수 선언
+#res = 0
+#var1, var2, oper = 0,0,""
+
+# 사용자에게 입력 받기
+#oper = input("계산 입력 (+,-,*,/) : ")
+#var1 = int(input())
+#var2 = int(input())
+
+# 함수 호출, 출력
+#res = calc(var1, var2, oper)
+#print("계산기 : ", var1, oper, var2, "=", res)
+
+# 함수의 몸체는 나중에 작성할 수 있음
+# pass 키워드 사용
+#def sub():
+#    pass
+
+# 함수 내에서는 아직 정의되지 않은 함수를 호출할 수 있다.
+#def main():
+#   result = calculate_area(5)
+#
+#def calculat_area(radius):
+#   area = 3.14 * radius ** 2
+#
+# 이 파일이 실행될 때만 main 함수 호촐
+#if __name__ == "__main__":
+#main()
+
+# 함수 안 변수를 변경해도 메인변수 변경X
+# 20을 집어넣고 돌렸을 때, 100으로 설정해도 20으로 출력됨
+#def set_rad(rad):
+#    rad = 100
+#    return
+#
+#r = 20
+#set_rad(r)
+#print(r)
+
+# 변수 범위
+# 전역변수 / 지역변수(함수 안)
+# 지역변수: 한정된 지역에서만 사용되는 변수
+# 전역변수: 프로그램 전체에서 사용되는 변수
+# 함수 안에서 선언된 것은 전역변수에 영향을 주지 않음
+
+#gx = 100
+#
+#def myfunc():
+#    gx = 200
+#    print(gx)   # 지역변수 200이 출력
+#    
+#myfunc()
+#print(gx)       # 전역변수 100이 출력
+
+gx = 100
+
+def myfunc():
+    global gx   # 전역변수 gx를 사용한다.
+    gx = 200    # 전역변수 값이 100 -> 200으로 변경
+    print(gx)   # 전역변수 200이 출력
+    
+myfunc()
+print(gx)       # 전역변수 200이 출력
+
+# 디폴트&키워드 인수
+def greet(name, message = "안녕하세요"):
+    print(f"{message}, {name}!")
+    
+# 함수 호출 시 디폴트 인수 사용
+greet("철수")
+
+# 디폴트 인수를 변경해서 호출
+greet("영희", "반가워요")
+
+# 키워드 인수
+greet(name = "영희", message = "반가워요")
+
+# 가변 인수
+# 함수가 정해지지 않은 수의 인수를 받을 수 있도록 할 때 사용
+# *인수 는 함수에 전달된 위치 인수들을 튜플 형태로 처리할 때 사용
+def sum_numbers(*args):
+    total = 0
+    for num in args:
+        total += num
+    return total
+# 여러 개의 숫자를 인수로 전달
+print(sum_numbers(1,2,3))
+print(sum_numbers(4,5,6,7,8))
+
